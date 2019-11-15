@@ -12,9 +12,9 @@
 #include <SPI.h>
 #include <HighPowerStepperDriver.h>
 
-const uint8_t DirPin = 2;
-const uint8_t StepPin = 3;
-const uint8_t CSPin = 4;
+const uint8_t DirPin = D0;
+const uint8_t StepPin = D1;
+const uint8_t CSPin = A2;
 
 // This period is the length of the delay between steps, which controls the
 // stepper motor's speed.  You can increase the delay to make the stepper motor

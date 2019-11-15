@@ -15,7 +15,6 @@
 #pragma once
 
 #include <Arduino.h>
-#include <SPI.h>
 
 
 /// Addresses of control and status registers.
@@ -96,7 +95,13 @@ private:
 
   uint16_t transfer(uint16_t value)
   {
-    return SPI.transfer16(value);
+    uint16_t retVal = 0;
+
+
+    retVal |= SPI.transfer(value >> 8) << 8;
+    retVal |= SPI.transfer(value & 0x00FF);
+
+    return retVal;
   }
 
   void selectChip()
